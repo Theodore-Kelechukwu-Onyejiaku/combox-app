@@ -6,7 +6,18 @@
             <div class="row no-gutters">
                 <% for(var i = 1; i <= 6; i++) { %>
                     <div class="col-md-4 ftco-animate">
-                        
+                        <a href="<%= stories[i].image['original_url'] %>"
+                            class="photography-entry img image-popup d-flex justify-content-center align-items-center"
+                            style="background-image: url('<%= stories[i].image['original_url'] %>')">
+                            <div class="overlay"></div>
+                            <div class="text text-center">
+                                
+                                <span class="tag">Stories</span>
+                            </div>
+                        </a>
+                        <h6>
+                            <%= stories[i].deck %>
+                        </h6>
                     </div>
                 <%}%>
             </div>

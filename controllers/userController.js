@@ -43,13 +43,28 @@ exports.getIssues = (req, res, next) =>{
 }
 
 exports.getStories = (req, res, next) =>{
-    var issues;
-        fetch("http://comicvine.gamespot.com/api/stories/?format=json&api_key="+process.env.api_key)
+    var stories;
+        fetch("http://comicvine.gamespot.com/api/story_arcs/?format=json&api_key="+process.env.api_key)
         .then(res => res.json())
         .then(iss =>{
-            issues = iss.results;
-            console.log(issues)
-            res.render("stories", {issues : iss.results, key: process.env.api_key})
+            stories = iss.results;
+            
+            res.render("stories", {stories : iss.results, key: process.env.api_key})
+
+        })
+        .catch(error => {
+            next(error)
+        })
+}
+
+exports.getSeries = (req, res, next) =>{
+    var stories;
+        fetch("http://comicvine.gamespot.com/api/series_list/?format=json&api_key="+process.env.api_key)
+        .then(res => res.json())
+        .then(iss =>{
+            stories = iss.results;
+            
+            res.render("series", {stories : iss.results, key: process.env.api_key})
 
         })
         .catch(error => {
@@ -61,7 +76,7 @@ exports.getDetail = (req, res, next)=>{
     fetch("https://comicvine.gamespot.com/api/character/"+req.params.char_id+"/?format=json&api_key="+process.env.api_key)
     .then(res => res.json())
     .then(detail =>{
-        console.log(detail)
+        
         res.render("stories-page");
     })
 } 

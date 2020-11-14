@@ -1,22 +1,22 @@
 <%- include("partials/header") %>
-<h1 style="text-align: center;">Issues</h1>
+<h1 style="text-align: center;">Stories</h1>
 <div id="colorlib-main">
     <section class="ftco-section-2">
         <div class="photograhy">
             <div class="row no-gutters">
                 <% for(var i = 1; i <= 6; i++) { %>
                     <div class="col-md-4 ftco-animate">
-                        <a href="<%= issues[i].image['original_url'] %>"
+                        <a href="<%= stories[i].image['original_url'] %>"
                             class="photography-entry img image-popup d-flex justify-content-center align-items-center"
-                            style="background-image: url('<%= issues[i].image['original_url'] %>')">
+                            style="background-image: url('<%= stories[i].image['original_url'] %>')">
                             <div class="overlay"></div>
                             <div class="text text-center">
                                 
-                                <span class="tag">Issue</span>
+                                <span class="tag">Series</span>
                             </div>
                         </a>
                         <h6>
-                            <%= issues[i].deck %>
+                            <%= stories[i].deck %>
                         </h6>
                     </div>
                 <%}%>
