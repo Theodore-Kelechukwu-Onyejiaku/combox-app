@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+<div id="colorlib-main">
+    <section class="ftco-section-2">
+        <div class="photograhy">
+            <div class="row no-gutters">
+                <% for(var i = 0; i <= 3; i++) { %>
+                    <div>characters[i].name</div>
+                <%}%>
+                <div class="col-md-4 ftco-animate">
+                    <a href="images/image_12.jpg"
+                        class="photography-entry img image-popup d-flex justify-content-center align-items-center"
+                        style="background-image: url(images/ximage_12.jpg.pagespeed.ic.0HO6VWeU7E.jpg);">
+                        <div class="overlay"></div>
+                        <div class="text text-center">
+                            <h3>Work 12</h3>
+                            <span class="tag">Photography</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include("partials/footer") %>
+</div>

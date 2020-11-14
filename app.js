@@ -9,26 +9,6 @@ const User = require("./models/userModel")
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
-
-//Middleware to verify token
-function verify(req, res, next) {
-    var token = req.cookies.auth;
-    // decode token
-    if (token) {
-      jwt.verify(token, process.env.TOKEN_SECRET, function(err, token_data) {
-        if (err) {
-           return res.status(403).render('sign-in', {error: "Please you must login to view this page"});
-        } else {
-          req.user_data = token_data;
-          next();
-        }
-      });
-    } else {
-        return res.status(403).render('sign-in', {error: "Please you must login to view this page!!!"});
-    }
-  }
-  
-
 //configuring dotenv
 require("dotenv").config();
 //Importing the body-parser middle ware
@@ -46,10 +26,9 @@ app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
-app.get("/send", verify, (req, res, next)=>{
-    res.render("index")
-})
 
+const userController = require("./controllers/userController")
+app.get("/", userController.getHomePage)
 
 app.get("/signin", (req, res, next) =>{
     res.render("signin")
@@ -58,10 +37,6 @@ app.get("/signin", (req, res, next) =>{
 app.get("/signup", (req, res, next)=>{
     res.render("signup")
 })
-
-
-  
-
 
 
 var mongoDB = process.env.DB || process.env.DB_Online;
