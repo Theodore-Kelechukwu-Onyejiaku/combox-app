@@ -4,7 +4,9 @@ const userController = require("../controllers/userController")
 
 userRouter.get("/", userController.getHomePage);
 
+userRouter.get("/issues", userController.getIssues);
 
-userRouter.get("http://comicvine.gamespot.com/api/issue/:char_id?format=json&api_key="+process.env.api_key, userController.getDetail)
+userRouter.get("/stories", userController.getStories)
+// userRouter.get("http://comicvine.gamespot.com/api/issue/:char_id?format=json&api_key="+process.env.api_key, userController.getDetail)
 
 module.exports = userRouter;
