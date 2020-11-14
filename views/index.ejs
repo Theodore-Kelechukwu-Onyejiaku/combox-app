@@ -3,20 +3,20 @@
     <section class="ftco-section-2">
         <div class="photograhy">
             <div class="row no-gutters">
-                <% for(var i = 0; i <= 3; i++) { %>
-                    <div>characters[i].name</div>
+                <% for(var i = 1; i <= 6; i++) { %>
+                    <div class="col-md-4 ftco-animate">
+                        <a href="<%= characters[i].image['original_url'] %>"
+                            class="photography-entry img image-popup d-flex justify-content-center align-items-center"
+                            style="background-image: url('<%= characters[i].image['original_url'] %>')">
+                            <div class="overlay"></div>
+                            <div class="text text-center">
+                                <h3>Work 12</h3>
+                                <span class="tag">Photography</span>
+                            </div>
+                        </a>
+                        <a href="<%= characters[i].api_detail_url %>?format=json&api_key=<%=key %>">Details</a>
+                    </div>
                 <%}%>
-                <div class="col-md-4 ftco-animate">
-                    <a href="images/image_12.jpg"
-                        class="photography-entry img image-popup d-flex justify-content-center align-items-center"
-                        style="background-image: url(images/ximage_12.jpg.pagespeed.ic.0HO6VWeU7E.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center">
-                            <h3>Work 12</h3>
-                            <span class="tag">Photography</span>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </section>

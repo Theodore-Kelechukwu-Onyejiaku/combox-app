@@ -27,8 +27,10 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 
-const userController = require("./controllers/userController")
-app.get("/", userController.getHomePage)
+const userController = require("./controllers/userController");
+const userRouter = require("./routers/userRoute");
+app.get("/", userRouter);
+
 
 app.get("/signin", (req, res, next) =>{
     res.render("signin")
